@@ -9,6 +9,8 @@ import Home from "./Components/Home.jsx";
 import Register from "./Components/Register.jsx";
 import SignIn from "./Components/SignIn.jsx";
 import AuthContext from "./Context/AuthContext.jsx";
+import Order from "./Components/Orders/Order.jsx";
+import PrivateRoute from "./routes/PrivateRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,15 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <SignIn />,
+      },
+      {
+        path: "/order",
+        element: (
+          <PrivateRoute>
+            {" "}
+            <Order />{" "}
+          </PrivateRoute>
+        ),
       },
     ],
   },

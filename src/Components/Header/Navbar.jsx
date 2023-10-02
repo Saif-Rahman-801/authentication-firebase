@@ -9,6 +9,7 @@ const Navbar = () => {
       <NavLink to="/">Home </NavLink>
       <NavLink to="/login">Signin </NavLink>
       <NavLink to="/register">Register </NavLink>
+      <NavLink to="/order">Orders </NavLink>
       <div>{user && <span>{user.email} </span>}</div>
       <div>
         {user ? (

@@ -1,19 +1,21 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthProvider } from "../Context/AuthContext";
 
 const Register = () => {
   const { createUser } = useContext(AuthProvider);
-
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.pass.value;
     console.log(name, email, password);
-    
+
     // create user with firebase
     createUser(email, password);
+    e.target.reset();
+    navigate("/");
   };
 
   return (
